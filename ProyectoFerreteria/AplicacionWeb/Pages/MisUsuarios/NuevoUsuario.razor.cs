@@ -1,15 +1,13 @@
 ﻿using AplicacionWeb.Interfaces;
-using Entidades;
 using Microsoft.AspNetCore.Components;
+using Entidades;
 using CurrieTechnologies.Razor.SweetAlert2;
 
 namespace AplicacionWeb.Pages.MisUsuarios
 {
     public partial class NuevoUsuario
     {
-
         [Inject] private IUsuarioServicio usuarioServicio { get; set; }
-
         [Inject] private NavigationManager navigationManager { get; set; }
         private Usuario user = new Usuario();
 
@@ -17,7 +15,8 @@ namespace AplicacionWeb.Pages.MisUsuarios
 
         protected async void Guardar()
         {
-            if (string.IsNullOrEmpty(user.Codigo) || string.IsNullOrEmpty(user.Nombre) || string.IsNullOrEmpty(user.Clave) || string.IsNullOrEmpty(user.Rol) || user.Rol == "Seleccionar")
+            if (string.IsNullOrEmpty(user.Codigo) || string.IsNullOrEmpty(user.Nombre)
+                || string.IsNullOrEmpty(user.Clave) || string.IsNullOrEmpty(user.Rol) || user.Rol == "Seleccionar")
             {
                 return;
             }
@@ -26,8 +25,7 @@ namespace AplicacionWeb.Pages.MisUsuarios
 
             if (inserto)
             {
-                await Swal.FireAsync("Felicidades", "Usuario Guardado", SweetAlertIcon.Success);
-
+                await Swal.FireAsync("Correcto", "Usuario Guardado", SweetAlertIcon.Success);
             }
             else
             {
@@ -41,9 +39,9 @@ namespace AplicacionWeb.Pages.MisUsuarios
         {
             navigationManager.NavigateTo("/Usuarios");
         }
-
     }
 }
+
 enum Roles
 {
     Seleccionar,
