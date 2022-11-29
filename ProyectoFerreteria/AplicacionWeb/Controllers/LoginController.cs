@@ -23,9 +23,9 @@ namespace AplicacionWeb.Controllers
 
         [HttpPost("/account/login")]
         public async Task<IActionResult> Login(Login login)
-
         {
             string rol = string.Empty;
+
             try
             {
                 bool usuarioValido = await _loginRepositorio.ValidarUsuario(login);
@@ -33,6 +33,7 @@ namespace AplicacionWeb.Controllers
                 if (usuarioValido)
                 {
                     Usuario user = await _usuarioRepositorio.GetPorCodigo(login.Codigo);
+
                     if (user.EstaActivo)
                     {
                         rol = user.Rol;
@@ -47,23 +48,19 @@ namespace AplicacionWeb.Controllers
                         ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 
                         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal, new AuthenticationProperties { IsPersistent = true, ExpiresUtc = DateTime.UtcNow.AddMinutes(5) });
-
-
                     }
                     else
                     {
-                        return LocalRedirect("/login/El usuario no esta activo. Intente de nuevo");
+                        return LocalRedirect("/login/El usuario no esta activo");
                     }
                 }
                 else
                 {
-                    return LocalRedirect("/login/Usuario no Encontrado. Intente de nuevo");
-
+                    return LocalRedirect("/login/Datos de usuario invalidos");
                 }
             }
             catch (Exception ex)
             {
-
             }
             return LocalRedirect("/");
         }
