@@ -3,7 +3,8 @@
 @attribute [AllowAnonymous]
 @inject NavigationManager navManager
 
-<h3>Login</h3>
+<link  rel="stylesheet" href="css/login.css"/>
+
 
 @if (ErrorMessage !=null)
 {
@@ -11,20 +12,29 @@
 
 }
 
+<div id="contenedor">
+    <div id=" Central">
+        <div id=" login">
+            <h3 class="text-center" style="color:blue; font-weight:bold">Iniciar Sesion</h3>
+            
+            <form id="loginform" method="post" action="/account/login">
+                <div class="form-group">
+                    <!--  <label>Usuario:</label>
+                      <br /> -->
+                    <input placeholder="Ingrese su Usuario" type="text" name="Codigo" required class="form-control col-sm-6 col-md-4" />
+                </div>
+                <br />
+                <div class="form-group">
+                   
+                    <input placeholder="Ingrese su Contraseña" type="password" name="Clave" class="form-control col-sm-6 col-md-4" />
+                </div>
+                <br />
+                <button class="btn btn-primary">Ingresar</button>
 
-<form method="post" action="/account/login">
-    <div class="form-group">
-        <label>Usuario:</label>
-        <input type="text" name="Codigo"class="form-control col-sm-6 col-md-4"/>
-    </div>
-
-    <div class="form-group">
-        <label>Clave:</label>
-        <input type="password" name="Clave" class="form-control col-sm-6 col-md-4" />
+            </form>
         </div>
-        <button class="btn btn-primary">>Entrar</button>
-
-</form>
+    </div>
+</div>
 
 @code {
     [Parameter] public string ErrorMessage {get; set;}
