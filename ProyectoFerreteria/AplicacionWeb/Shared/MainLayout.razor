@@ -1,6 +1,6 @@
 ﻿@inherits LayoutComponentBase
 
-<PageTitle>AplicacionWeb</PageTitle>
+<PageTitle>Facturacón Ferreteria</PageTitle>
 
 <div class="page">
     <div class="sidebar">
@@ -12,13 +12,13 @@
             <AuthorizeView>
                 <Authorized>
                     <span class="ml-md-auto">
-                        Usuario Conectado: @context.User.Claims.First().Value
-                        <a href="/account/logout">Salir</a>
+                        Usuario Conectado : @context.User.Claims.First().Value
+                        <a href="/account/logout"> Salir </a>
                     </span>
                 </Authorized>
 
                 <NotAuthorized>
-                    <a href="login">Iniciar Sesion</a>
+                    <a href="login"> Iniciar Sesion </a>
                 </NotAuthorized>
 
             </AuthorizeView>

@@ -85,6 +85,7 @@ CREATE TABLE IF NOT EXISTS `FerreteriaBD`.`DetalleFactura` (
   `Total` DECIMAL(8,2) NULL)
 ENGINE = InnoDB;
 
+INSERT INTO `FerreteriaBD`.`usuarios` VALUES (1,'Ony Reina','reinaony@unah.hn','prueba','Administrador',1);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
