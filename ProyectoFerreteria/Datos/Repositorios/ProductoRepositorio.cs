@@ -25,7 +25,7 @@ namespace Datos.Repositorios
             {
                 using MySqlConnection conexion = Conexion();
                 await conexion.OpenAsync();
-                string sql = @"UPDATE producto SET Descripcion = @Descripcion, Existencia = @Existencia, Precio = @Precio, FechaCreacion = @FechaCreacion, 
+                string sql = @"UPDATE producto SET Descripcion = @Descripcion, Existencia = @Existencia, Precio = @Precio, FechaAlmacen = @FechaAlmacen, 
                                Imagen = @Imagen WHERE Codigo = @Codigo;";
                 resultado = Convert.ToBoolean(await conexion.ExecuteAsync(sql, producto));
             }
