@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Entidades;
+﻿using Entidades;
 
-namespace Datos.Interfaces
+namespace AplicacionWeb.Interfaces
 {
     public interface IProductoServicio
     {

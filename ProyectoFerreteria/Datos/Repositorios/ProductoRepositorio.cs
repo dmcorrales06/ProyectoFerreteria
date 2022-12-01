@@ -1,13 +1,7 @@
-﻿using Datos.Interfaces;
-using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Dapper;
+﻿using Dapper;
 using Datos.Interfaces;
 using Entidades;
+using MySql.Data.MySqlClient;
 
 namespace Datos.Repositorios
 {
@@ -24,7 +18,6 @@ namespace Datos.Repositorios
         {
             return new MySqlConnection(CadenaConexon);
         }
-
         public async Task<bool> Actualizar(Producto producto)
         {
             bool resultado = false;
@@ -97,8 +90,8 @@ namespace Datos.Repositorios
             {
                 using MySqlConnection conexion = Conexion();
                 await conexion.OpenAsync();
-                string sql = @"INSERT INTO producto (Codigo, Descripcion, Existencia, Precio, FechaCreacion, Imagen) 
-                               VALUES (@Codigo, @Descripcion, @Existencia, @Precio, @FechaCreacion, @Imagen);";
+                string sql = @"INSERT INTO producto (Codigo, Descripcion, Existencia, Precio, FechaAlmacen, Imagen)
+                               VALUES (@Codigo, @Descripcion, @Existencia, @Precio, @FechaAlmacen, @Imagen);";
                 resultado = Convert.ToBoolean(await conexion.ExecuteAsync(sql, producto));
             }
             catch (Exception ex)
