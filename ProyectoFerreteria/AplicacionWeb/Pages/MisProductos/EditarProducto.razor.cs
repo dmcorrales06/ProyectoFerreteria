@@ -48,12 +48,12 @@ namespace AplicacionWeb.Pages.MisProductos
 
             if (edito)
             {
-                await Swal.FireAsync("Advertencia", "Producto guardado con exito", SweetAlertIcon.Success);
+                await Swal.FireAsync("Advertencia", "Producto guardado con éxito", SweetAlertIcon.Success);
                 _navigationManager.NavigateTo("/Productos");
             }
             else
             {
-                await Swal.FireAsync("Advertencia", "No se pudo guardar el producto", SweetAlertIcon.Error);
+                await Swal.FireAsync("Advertencia", "No se guardó el producto", SweetAlertIcon.Error);
             }
         }
         protected async Task Cancelar()
@@ -80,12 +80,12 @@ namespace AplicacionWeb.Pages.MisProductos
 
                 if (elimino)
                 {
-                    await Swal.FireAsync("Felifidades", "Producto Eliminado", SweetAlertIcon.Success);
+                    await Swal.FireAsync("Advertencia", "Producto eliminado", SweetAlertIcon.Success);
                     _navigationManager.NavigateTo("/Productos");
                 }
                 else
                 {
-                    await Swal.FireAsync("Error", "No se pudo Eliminar el producto", SweetAlertIcon.Error);
+                    await Swal.FireAsync("Error", "No se eliminó el producto", SweetAlertIcon.Error);
                 }
             }
         }

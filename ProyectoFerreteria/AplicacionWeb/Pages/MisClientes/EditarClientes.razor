@@ -35,7 +35,7 @@
 					Direccion
 				</label>
 				<div class="col-sm-10">
-					<InputText id="Direccion" type="password" class="form-control" @bind-Value="cliente.Direccion" />
+					<InputText id="Direccion" class="form-control" @bind-Value="cliente.Direccion" />
 					<ValidationMessage For="@(() => cliente.Direccion)" />
 				</div>
 			</div>
@@ -60,7 +60,7 @@
 				</div>
 			</div>
 			
-
+			<br />
 			<div class="form-group row">
 				<p>
 					<input type="submit" class="btn btn-primary" value="Guardar" @onclick="Guardar" />

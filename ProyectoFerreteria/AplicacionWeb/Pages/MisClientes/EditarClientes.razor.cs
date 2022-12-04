@@ -25,8 +25,8 @@ namespace AplicacionWeb.Pages.MisClientes
 
 		protected async void Guardar()
 		{
-			if (string.IsNullOrEmpty(cliente.Identidad) || string.IsNullOrEmpty(cliente.NombreCliente)
-				|| string.IsNullOrEmpty(cliente.Direccion) || string.IsNullOrEmpty(cliente.Email) || cliente.Telefono == "Seleccionar")
+			if (string.IsNullOrEmpty(cliente.Identidad) || string.IsNullOrEmpty(cliente.NombreCliente))
+				//|| string.IsNullOrEmpty(cliente.Direccion) || string.IsNullOrEmpty(cliente.Email) || cliente.Telefono == "Seleccionar")
 			{
 				return;
 			}

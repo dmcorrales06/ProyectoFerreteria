@@ -21,6 +21,20 @@ namespace AplicacionWeb.Pages.MisUsuarios
                 return;
             }
 
+            Usuario usuarioExistente = new Usuario();
+
+            usuarioExistente = await usuarioServicio.GetPorCodigo(user.Codigo);
+
+           
+            if (usuarioExistente != null)
+            {
+                if (usuarioExistente.Codigo == user.Codigo)
+                {
+                    await Swal.FireAsync("Advertencia", "Ya existe un usuario con este código", SweetAlertIcon.Warning);
+                    return;
+                }
+            }
+
             bool inserto = await usuarioServicio.Nuevo(user);
 
             if (inserto)
@@ -29,7 +43,7 @@ namespace AplicacionWeb.Pages.MisUsuarios
             }
             else
             {
-                await Swal.FireAsync("Error", "No se pudo guardar el usuario", SweetAlertIcon.Error);
+                await Swal.FireAsync("Error", "No se guardó el usuario", SweetAlertIcon.Error);
             }
 
             navigationManager.NavigateTo("/Usuarios");
