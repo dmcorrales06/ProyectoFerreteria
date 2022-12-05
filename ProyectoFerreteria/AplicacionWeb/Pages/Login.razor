@@ -6,27 +6,27 @@
 <link  rel="stylesheet" href="css/login.css"/>
 
 
-@if (ErrorMessage !=null)
-{
-    <div class="text-danger">@ErrorMessage</div>
-
-}
-
-<div id="contenedor">
+@*<div id="contenedor">*@
     <div id=" Central">
         <div id=" login">
-            <h3 class="text-center" style="color:blue; font-weight:bold">Iniciar Sesion</h3>
-            
+        <h3 style="color:blue; font-weight:bold">Iniciar Sesion</h3>
+
+        @if (ErrorMessage != null)
+        {
+            <div class="text-danger">@ErrorMessage</div>
+
+        }
+        <br />
+
             <form id="loginform" method="post" action="/account/login">
-                <div class="form-group">
-                    <!--  <label>Usuario:</label>
-                      <br /> -->
-                    <input placeholder="Ingrese su Usuario" type="text" name="Codigo" required class="form-control col-sm-6 col-md-4" />
+                <div class="form-group" >
+                    <input placeholder="Usuario" type="text" name="Codigo" required class="form-control col-sm-6 col-md-4" />
                 </div>
+
                 <br />
+
                 <div class="form-group">
-                   
-                    <input placeholder="Ingrese su Contraseña" type="password" name="Clave" class="form-control col-sm-6 col-md-4" />
+                    <input placeholder="Contraseña" type="password" name="Clave" class="form-control col-sm-6 col-md-4" />
                 </div>
                 <br />
                 <button class="btn btn-primary">Ingresar</button>
@@ -34,7 +34,7 @@
             </form>
         </div>
     </div>
-</div>
+@*</div>*@
 
 @code {
     [Parameter] public string ErrorMessage {get; set;}
